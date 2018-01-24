@@ -20,13 +20,19 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 PURPLE = (255, 0, 255)
 
+basicfont = pygame.font.SysFont(None, 20)
+text = basicfont.render('Score: ' + str(score), True, (255, 255, 255), (0, 0, 0))
+textrect = text.get_rect()
+textrect.x = 0
+textrect.y = 1
+
 all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
 
 brick_list = []
 for i in range(4):
-    y = i*10    
+    y = i*10 + 22   
     for i in range(16):
         x = i*40
         brick = Bricks(RED, 39, 9, x, y)
@@ -52,6 +58,7 @@ while 1:
     screen.fill(black)
     all_sprites_list.draw(screen)
     screen.blit(ball, ballrect)
+    screen.blit(text, textrect)
     pygame.display.flip()
 
     for i in range(len(brick_list)):

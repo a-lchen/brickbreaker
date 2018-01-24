@@ -30,6 +30,8 @@ all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
 
+score = 0
+
 brick_list = []
 for i in range(4):
     y = i*10 + 22   
@@ -65,6 +67,8 @@ while 1:
         if brick_list[i].bounce(ballrect):
             speed[1] = -speed[1]
             all_sprites_list.remove(brick_list.pop(i))
+            score = score + 1
             break
+    print (score)
 
 

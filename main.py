@@ -10,7 +10,7 @@ screen = pygame.display.set_mode(size)
 
 ball = pygame.image.load("ball.bmp")
 ball = pygame.transform.scale(ball, (25, 25))
-ballrect = ball.get_rect(center=(500,500))
+ballrect = ball.get_rect(center=(320,240))
 
 
 while 1:

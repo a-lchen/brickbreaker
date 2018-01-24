@@ -4,6 +4,7 @@ from bricks import Bricks
 
 pygame.init()
 score = 0
+lives = 3
 
 size = width, height = 640, 480
 speed = [4, 4]
@@ -22,7 +23,7 @@ RED = (255, 0, 0)
 PURPLE = (255, 0, 255)
 
 basicfont = pygame.font.SysFont(None, 20)
-text = basicfont.render('Score: ' + str(score), True, (255, 255, 255), (0, 0, 0))
+text = basicfont.render('Score: ' + str(score) + "       "  + "Lives " + str(lives), True, (255, 255, 255), (0, 0, 0))
 textrect = text.get_rect()
 textrect.x = 0
 textrect.y = 1
@@ -51,7 +52,15 @@ while 1:
     if ballrect.top < 0:
         speed[1] = -speed[1]
     elif ballrect.top > height:
-        sys.exit()
+        lives = lives - 1
+        text = basicfont.render('Score: ' + str(score) + "       "  + "Lives " + str(lives), True, (255, 255, 255), (0, 0, 0))
+        textrect = text.get_rect()
+        textrect.x = 0
+        textrect.y = 1
+        if lives == 0:
+            sys.exit()
+        ballrect.x = 320
+        ballrect.y = 240
     if (paddle.bounce(ballrect)):
         speed[1] = -speed[1]
 
@@ -67,7 +76,7 @@ while 1:
             speed[1] = -speed[1]
             all_sprites_list.remove(brick_list.pop(i))
             score = score + 1
-            text = basicfont.render('Score: ' + str(score), True, (255, 255, 255), (0, 0, 0))
+            text = basicfont.render('Score: ' + str(score) + "       "  + "Lives " + str(lives), True, (255, 255, 255), (0, 0, 0))
             textrect = text.get_rect()
             textrect.x = 0
             textrect.y = 1

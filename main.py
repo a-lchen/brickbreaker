@@ -24,10 +24,12 @@ all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
 
+brick_list = []
 for i in range(16):
     x = i*40
     y = 0
     brick = Bricks(RED, 39, 9, x, y)
+    brick_list.append(brick)
     all_sprites_list.add(brick)
 
 while 1:
@@ -44,4 +46,11 @@ while 1:
     all_sprites_list.draw(screen)
     screen.blit(ball, ballrect)
     pygame.display.flip()
+
+    for i in range(len(brick_list)):
+        if brick_list[i].bounce(ballrect):
+            speed[1] = -speed[1]
+            all_sprites_list.remove(brick_list.pop(i))
+            break
+
 

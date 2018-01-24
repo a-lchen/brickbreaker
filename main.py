@@ -23,10 +23,12 @@ PURPLE = (255, 0, 255)
 all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10)
 all_sprites_list.add(paddle)
-print all_sprites_list
 
-brick = Bricks(RED, 30, 10)
-all_sprites_list.add(brick)
+for i in range(16):
+    x = i*40
+    y = 0
+    brick = Bricks(RED, 39, 9, x, y)
+    all_sprites_list.add(brick)
 
 while 1:
     all_sprites_list.update()

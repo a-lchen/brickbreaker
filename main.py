@@ -1,5 +1,6 @@
 import sys, pygame
 from paddle import Paddle
+from bricks import Bricks
 
 pygame.init()
 
@@ -13,11 +14,19 @@ ball = pygame.image.load("ball.bmp")
 ball = pygame.transform.scale(ball, (25, 25))
 ballrect = ball.get_rect(center=(320,240))
 
+GREEN = (20, 255, 140)
+GREY = (210, 210 ,210)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+PURPLE = (255, 0, 255)
 
 all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10)
 all_sprites_list.add(paddle)
 print all_sprites_list
+
+brick = Bricks(RED, 30, 10)
+all_sprites_list.add(brick)
 
 while 1:
     all_sprites_list.update()

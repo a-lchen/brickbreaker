@@ -25,12 +25,13 @@ paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
 
 brick_list = []
-for i in range(16):
-    x = i*40
-    y = 0
-    brick = Bricks(RED, 39, 9, x, y)
-    brick_list.append(brick)
-    all_sprites_list.add(brick)
+for i in range(4):
+    y = i*10    
+    for i in range(16):
+        x = i*40
+        brick = Bricks(RED, 39, 9, x, y)
+        brick_list.append(brick)
+        all_sprites_list.add(brick)
 
 while 1:
     all_sprites_list.update()

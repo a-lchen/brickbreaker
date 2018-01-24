@@ -9,7 +9,9 @@ black = 0, 0, 0
 screen = pygame.display.set_mode(size)
 
 ball = pygame.image.load("ball.bmp")
-ballrect = ball.get_rect()
+ball = pygame.transform.scale(ball, (25, 25))
+ballrect = ball.get_rect(center=(500,500))
+
 
 while 1:
     for event in pygame.event.get():

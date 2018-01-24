@@ -25,9 +25,9 @@ class Paddle(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
-    def handle_keys(self):
+    def handle_keys(self, width):
         key = pygame.key.get_pressed()
-        dist = 3
+        dist = 6
         if key[pygame.K_LEFT]:
            self.rect.move_ip(-dist, 0)
         if key[pygame.K_RIGHT]:
@@ -36,6 +36,10 @@ class Paddle(pygame.sprite.Sprite):
            self.rect.move_ip(0, -dist)
         if key[pygame.K_DOWN]:
            self.rect.move_ip(0, dist)
+        if self.rect.x > width:
+            self.rect.x = 0
+        if self.rect.x < 0:
+            self.rect.x = width
 
     def bounce(self, r):
         if (r.colliderect(self.rect)):

@@ -41,13 +41,14 @@ while 1:
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
         speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
+    if ballrect.top < 0:
         speed[1] = -speed[1]
-
+    elif ballrect.top > height:
+        sys.exit()
     if (paddle.bounce(ballrect)):
         speed[1] = -speed[1]
 
-    paddle.handle_keys()
+    paddle.handle_keys(width)
     screen.fill(black)
     all_sprites_list.draw(screen)
     screen.blit(ball, ballrect)

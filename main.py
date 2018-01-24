@@ -3,6 +3,7 @@ from paddle import Paddle
 from bricks import Bricks
 
 pygame.init()
+score = 0
 
 size = width, height = 640, 480
 speed = [2, 2]
@@ -29,8 +30,6 @@ textrect.y = 1
 all_sprites_list = pygame.sprite.Group()
 paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
-
-score = 0
 
 brick_list = []
 for i in range(4):
@@ -68,7 +67,10 @@ while 1:
             speed[1] = -speed[1]
             all_sprites_list.remove(brick_list.pop(i))
             score = score + 1
+            text = basicfont.render('Score: ' + str(score), True, (255, 255, 255), (0, 0, 0))
+            textrect = text.get_rect()
+            textrect.x = 0
+            textrect.y = 1
             break
-    print (score)
 
 

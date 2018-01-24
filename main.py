@@ -15,7 +15,7 @@ ballrect = ball.get_rect(center=(320,240))
 
 
 all_sprites_list = pygame.sprite.Group()
-paddle = Paddle(GREEN, 40, 10)
+paddle = Paddle(GREEN, 40, 10, 0, 470)
 all_sprites_list.add(paddle)
 print all_sprites_list
 

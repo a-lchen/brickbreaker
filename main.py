@@ -40,6 +40,11 @@ while 1:
         speed[0] = -speed[0]
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = -speed[1]
+
+    if (paddle.bounce(ballrect)):
+        speed[1] = -speed[1]
+
+    paddle.handle_keys()
     screen.fill(black)
     all_sprites_list.draw(screen)
     screen.blit(ball, ballrect)

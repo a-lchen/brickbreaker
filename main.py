@@ -6,7 +6,7 @@ pygame.init()
 score = 0
 
 size = width, height = 640, 480
-speed = [2, 2]
+speed = [4, 4]
 black = 0, 0, 0
 GREEN = (20, 255, 140)
 screen = pygame.display.set_mode(size)
@@ -28,7 +28,7 @@ textrect.x = 0
 textrect.y = 1
 
 all_sprites_list = pygame.sprite.Group()
-paddle = Paddle(GREEN, 40, 10, 0, 470)
+paddle = Paddle(GREEN, 40, 10, 300, 470)
 all_sprites_list.add(paddle)
 
 brick_list = []
